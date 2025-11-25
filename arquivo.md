@@ -226,18 +226,40 @@ Utilizando o template GQM (Goal-Question-Metric):
 
 ---
 
-### 3.4 Métricas associadas (GQM)
+### 3.4 Tabela GQM Completa
 
-| Questão | Métrica | Definição | Unidade | Fórmula/Coleta |
-|---------|---------|-----------|---------|----------------|
-| Q1 | **Taxa de detecção (Recall)** | Proporção de defeitos reais detectados em relação ao total de defeitos existentes | % | (Defeitos detectados / Total de defeitos inseridos) × 100 |
-| Q1 | **Número absoluto de defeitos** | Quantidade total de defeitos identificados corretamente | Contagem | Soma de defeitos válidos encontrados |
-| Q2 | **Tempo de revisão** | Tempo total gasto para completar a revisão | Minutos | Cronometragem (fim - início) |
-| Q2 | **Velocidade de revisão** | Linhas de código revisadas por unidade de tempo | LOC/min | LOC total / Tempo de revisão |
-| Q3 | **Distribuição por categoria** | Proporção de defeitos detectados em cada categoria | % por categoria | Contagem por categoria / Total detectado |
-| Q4 | **Taxa de falso positivo** | Proporção de problemas reportados que não são defeitos reais | % | (Falsos positivos / Total reportado) × 100 |
-| Q4 | **Precisão** | Proporção de defeitos reportados que são realmente defeitos | % | (Verdadeiros positivos / Total reportado) × 100 |
-| Q5 | **F1-Score** | Média harmônica entre precisão e recall | 0-1 | 2 × (Precisão × Recall) / (Precisão + Recall) |
+| Objetivo | Perguntas | Métricas |
+|----------|-----------|----------|
+| **O1: Comparar a taxa de detecção de defeitos** | Q1.1: Qual abordagem detecta maior número de defeitos reais?<br>Q1.2: Qual a eficácia de cada abordagem na detecção de defeitos críticos?<br>Q1.3: Há diferença na consistência de detecção entre participantes? | M1: Taxa de detecção (Recall)<br>M2: Número absoluto de defeitos detectados<br>M3: Taxa de detecção por severidade<br>M4: Coeficiente de variação da detecção |
+| **O2: Comparar o tempo necessário** | Q2.1: Qual abordagem requer menos tempo para completar uma revisão?<br>Q2.2: Como o tempo varia conforme complexidade do código?<br>Q2.3: Há diferença no tempo por tipo de defeito encontrado? | M5: Tempo total de revisão<br>M6: Velocidade de revisão (LOC/min)<br>M7: Tempo médio por defeito encontrado<br>M8: Tempo por complexidade ciclomática |
+| **O3: Identificar tipos de defeitos por abordagem** | Q3.1: Quais tipos de defeitos cada abordagem detecta melhor?<br>Q3.2: Existem defeitos detectados apenas por uma abordagem?<br>Q3.3: Qual a distribuição de defeitos por categoria? | M9: Distribuição por categoria de defeito<br>M10: Taxa de detecção por tipo<br>M11: Índice de especialização por categoria<br>M12: Cobertura de categorias |
+| **O4: Avaliar taxa de falsos positivos** | Q4.1: Qual abordagem apresenta menor taxa de falsos positivos?<br>Q4.2: Os falsos positivos variam por categoria de defeito?<br>Q4.3: Qual a precisão geral de cada abordagem? | M13: Taxa de falso positivo geral<br>M14: Precisão<br>M15: Taxa de falso positivo por categoria<br>M16: Valor preditivo positivo |
+| **O5: Avaliar abordagem híbrida** | Q5.1: A revisão híbrida detecta mais defeitos que abordagens isoladas?<br>Q5.2: Qual o custo-benefício da abordagem híbrida?<br>Q5.3: A combinação reduz falsos positivos? | M17: F1-Score da abordagem híbrida<br>M18: Tempo adicional da abordagem híbrida<br>M19: Taxa de melhoria sobre abordagens isoladas<br>M20: Índice de eficiência híbrida |
+
+### 3.5 Tabela de Todas as Métricas
+
+| ID | Métrica | Descrição | Unidade |
+|----|---------|-----------|---------|
+| M1 | Taxa de detecção (Recall) | Proporção de defeitos reais detectados em relação ao total existente | Percentual (%) |
+| M2 | Número absoluto de defeitos | Quantidade total de defeitos identificados corretamente | Contagem (n) |
+| M3 | Taxa de detecção por severidade | Proporção de defeitos detectados em cada nível de severidade | Percentual (%) |
+| M4 | Coeficiente de variação da detecção | Medida de consistência na detecção entre participantes | Adimensional |
+| M5 | Tempo total de revisão | Tempo total gasto para completar uma revisão | Minutos |
+| M6 | Velocidade de revisão | Linhas de código revisadas por unidade de tempo | LOC/minuto |
+| M7 | Tempo médio por defeito | Tempo médio gasto para encontrar cada defeito | Minutos/defeito |
+| M8 | Tempo por complexidade | Tempo de revisão normalizado pela complexidade ciclomática | Minutos/complexidade |
+| M9 | Distribuição por categoria | Proporção de defeitos detectados em cada categoria | Percentual (%) |
+| M10 | Taxa de detecção por tipo | Eficácia na detecção de cada tipo específico de defeito | Percentual (%) |
+| M11 | Índice de especialização | Medida de quanto uma abordagem é especializada em certas categorias | Adimensional |
+| M12 | Cobertura de categorias | Número de categorias diferentes onde defeitos foram detectados | Contagem (n) |
+| M13 | Taxa de falso positivo geral | Proporção de problemas reportados que não são defeitos reais | Percentual (%) |
+| M14 | Precisão | Proporção de defeitos reportados que são realmente defeitos | Percentual (%) |
+| M15 | Taxa de falso positivo por categoria | Falsos positivos específicos de cada categoria de defeito | Percentual (%) |
+| M16 | Valor preditivo positivo | Probabilidade de um resultado positivo ser um verdadeiro defeito | Percentual (%) |
+| M17 | F1-Score híbrido | Média harmônica entre precisão e recall da abordagem combinada | Adimensional (0-1) |
+| M18 | Tempo adicional híbrido | Tempo extra necessário para aplicar abordagem híbrida | Minutos |
+| M19 | Taxa de melhoria híbrida | Percentual de melhoria da abordagem híbrida sobre individuais | Percentual (%) |
+| M20 | Índice de eficiência híbrida | Relação entre benefícios e custos da abordagem híbrida | Adimensional |
 
 **Categorias de defeitos a serem utilizadas:**
 
