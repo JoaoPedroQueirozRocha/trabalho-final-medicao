@@ -1,3 +1,4 @@
+
 # Plano de Experimento
 
 ## Comparação da Eficácia de Code Review com CodeRabbit (IA) versus Revisão Manual na Detecção de Defeitos em Código Python
@@ -89,15 +90,15 @@ Ferramentas de code review assistidas por IA, como o CodeRabbit, prometem:
 
 ### 2.2 Contexto organizacional e técnico
 
-| Aspecto                    | Descrição                                     |
-| -------------------------- | ----------------------------------------------- |
-| **Ambiente**         | Acadêmico - Puc Minas                |
-| **Participantes**    | Estudantes de graduação em Engenharia de Software            |
-| **Domínio**         | Desenvolvimento de software geral               |
-| **Linguagem**        | Python 3.x                                      |
-| **Ferramenta de IA** | CodeRabbit (https://coderabbit.ai)              |
-| **Plataforma**       | GitHub (para PRs e integração com CodeRabbit) |
-| **IDE sugerida**     | VSCode ou PyCharm                               |
+| Aspecto                    | Descrição                                         |
+| -------------------------- | --------------------------------------------------- |
+| **Ambiente**         | Acadêmico - Puc Minas                              |
+| **Participantes**    | Estudantes de graduação em Engenharia de Software |
+| **Domínio**         | Desenvolvimento de software geral                   |
+| **Linguagem**        | Python 3.x                                          |
+| **Ferramenta de IA** | CodeRabbit (https://coderabbit.ai)                  |
+| **Plataforma**       | GitHub (para PRs e integração com CodeRabbit)     |
+| **IDE sugerida**     | VSCode ou PyCharm                                   |
 
 **Sobre o CodeRabbit:**
 
@@ -182,13 +183,13 @@ Ferramentas de code review assistidas por IA, como o CodeRabbit, prometem:
 
 Utilizando o template GQM (Goal-Question-Metric):
 
-| Componente | Descrição |
-|------------|-----------||
-| **Analisar** | O processo de code review |
-| **Com o propósito de** | Comparar a eficácia |
-| **Com respeito a** | Detecção de defeitos, tempo de revisão e tipos de problemas identificados |
-| **Do ponto de vista de** | Pesquisador / Equipe de desenvolvimento |
-| **No contexto de** | Revisão de código Python por estudantes de graduação utilizando ferramenta de IA versus revisão manual |
+| Componente                     | Descrição                                                                                                 |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| **Analisar**             | O processo de code review                                                                                   |
+| **Com o propósito de**  | Comparar a eficácia                                                                                        |
+| **Com respeito a**       | Detecção de defeitos, tempo de revisão e tipos de problemas identificados                                |
+| **Do ponto de vista de** | Pesquisador / Equipe de desenvolvimento                                                                     |
+| **No contexto de**       | Revisão de código Python por estudantes de graduação utilizando ferramenta de IA versus revisão manual |
 
 **Objetivo em forma textual:**
 
@@ -210,13 +211,13 @@ Utilizando o template GQM (Goal-Question-Metric):
 
 **Questões de pesquisa:**
 
-| ID | Questão | Relacionado a |
-|----|---------|---------------|
-| **Q1** | Qual abordagem (IA ou Manual) detecta maior número de defeitos reais em código Python? | O1 |
-| **Q2** | Qual abordagem requer menos tempo para completar uma revisão de código? | O2 |
-| **Q3** | Existem categorias de defeitos que são detectadas predominantemente por uma abordagem específica? | O3 |
-| **Q4** | Qual abordagem apresenta menor taxa de falsos positivos? | O4 |
-| **Q5** | A revisão híbrida (IA seguida de Manual) detecta mais defeitos que cada abordagem isoladamente? | O5 |
+| ID           | Questão                                                                                            | Relacionado a |
+| ------------ | --------------------------------------------------------------------------------------------------- | ------------- |
+| **Q1** | Qual abordagem (IA ou Manual) detecta maior número de defeitos reais em código Python?            | O1            |
+| **Q2** | Qual abordagem requer menos tempo para completar uma revisão de código?                           | O2            |
+| **Q3** | Existem categorias de defeitos que são detectadas predominantemente por uma abordagem específica? | O3            |
+| **Q4** | Qual abordagem apresenta menor taxa de falsos positivos?                                            | O4            |
+| **Q5** | A revisão híbrida (IA seguida de Manual) detecta mais defeitos que cada abordagem isoladamente?   | O5            |
 
 **Questões de negócio (para contexto prático):**
 
@@ -226,40 +227,18 @@ Utilizando o template GQM (Goal-Question-Metric):
 
 ---
 
-### 3.4 Tabela GQM Completa
+### 3.4 Métricas associadas (GQM)
 
-| Objetivo | Perguntas | Métricas |
-|----------|-----------|----------|
-| **O1: Comparar a taxa de detecção de defeitos** | Q1.1: Qual abordagem detecta maior número de defeitos reais?<br>Q1.2: Qual a eficácia de cada abordagem na detecção de defeitos críticos?<br>Q1.3: Há diferença na consistência de detecção entre participantes? | M1: Taxa de detecção (Recall)<br>M2: Número absoluto de defeitos detectados<br>M3: Taxa de detecção por severidade<br>M4: Coeficiente de variação da detecção |
-| **O2: Comparar o tempo necessário** | Q2.1: Qual abordagem requer menos tempo para completar uma revisão?<br>Q2.2: Como o tempo varia conforme complexidade do código?<br>Q2.3: Há diferença no tempo por tipo de defeito encontrado? | M5: Tempo total de revisão<br>M6: Velocidade de revisão (LOC/min)<br>M7: Tempo médio por defeito encontrado<br>M8: Tempo por complexidade ciclomática |
-| **O3: Identificar tipos de defeitos por abordagem** | Q3.1: Quais tipos de defeitos cada abordagem detecta melhor?<br>Q3.2: Existem defeitos detectados apenas por uma abordagem?<br>Q3.3: Qual a distribuição de defeitos por categoria? | M9: Distribuição por categoria de defeito<br>M10: Taxa de detecção por tipo<br>M11: Índice de especialização por categoria<br>M12: Cobertura de categorias |
-| **O4: Avaliar taxa de falsos positivos** | Q4.1: Qual abordagem apresenta menor taxa de falsos positivos?<br>Q4.2: Os falsos positivos variam por categoria de defeito?<br>Q4.3: Qual a precisão geral de cada abordagem? | M13: Taxa de falso positivo geral<br>M14: Precisão<br>M15: Taxa de falso positivo por categoria<br>M16: Valor preditivo positivo |
-| **O5: Avaliar abordagem híbrida** | Q5.1: A revisão híbrida detecta mais defeitos que abordagens isoladas?<br>Q5.2: Qual o custo-benefício da abordagem híbrida?<br>Q5.3: A combinação reduz falsos positivos? | M17: F1-Score da abordagem híbrida<br>M18: Tempo adicional da abordagem híbrida<br>M19: Taxa de melhoria sobre abordagens isoladas<br>M20: Índice de eficiência híbrida |
-
-### 3.5 Tabela de Todas as Métricas
-
-| ID | Métrica | Descrição | Unidade |
-|----|---------|-----------|---------|
-| M1 | Taxa de detecção (Recall) | Proporção de defeitos reais detectados em relação ao total existente | Percentual (%) |
-| M2 | Número absoluto de defeitos | Quantidade total de defeitos identificados corretamente | Contagem (n) |
-| M3 | Taxa de detecção por severidade | Proporção de defeitos detectados em cada nível de severidade | Percentual (%) |
-| M4 | Coeficiente de variação da detecção | Medida de consistência na detecção entre participantes | Adimensional |
-| M5 | Tempo total de revisão | Tempo total gasto para completar uma revisão | Minutos |
-| M6 | Velocidade de revisão | Linhas de código revisadas por unidade de tempo | LOC/minuto |
-| M7 | Tempo médio por defeito | Tempo médio gasto para encontrar cada defeito | Minutos/defeito |
-| M8 | Tempo por complexidade | Tempo de revisão normalizado pela complexidade ciclomática | Minutos/complexidade |
-| M9 | Distribuição por categoria | Proporção de defeitos detectados em cada categoria | Percentual (%) |
-| M10 | Taxa de detecção por tipo | Eficácia na detecção de cada tipo específico de defeito | Percentual (%) |
-| M11 | Índice de especialização | Medida de quanto uma abordagem é especializada em certas categorias | Adimensional |
-| M12 | Cobertura de categorias | Número de categorias diferentes onde defeitos foram detectados | Contagem (n) |
-| M13 | Taxa de falso positivo geral | Proporção de problemas reportados que não são defeitos reais | Percentual (%) |
-| M14 | Precisão | Proporção de defeitos reportados que são realmente defeitos | Percentual (%) |
-| M15 | Taxa de falso positivo por categoria | Falsos positivos específicos de cada categoria de defeito | Percentual (%) |
-| M16 | Valor preditivo positivo | Probabilidade de um resultado positivo ser um verdadeiro defeito | Percentual (%) |
-| M17 | F1-Score híbrido | Média harmônica entre precisão e recall da abordagem combinada | Adimensional (0-1) |
-| M18 | Tempo adicional híbrido | Tempo extra necessário para aplicar abordagem híbrida | Minutos |
-| M19 | Taxa de melhoria híbrida | Percentual de melhoria da abordagem híbrida sobre individuais | Percentual (%) |
-| M20 | Índice de eficiência híbrida | Relação entre benefícios e custos da abordagem híbrida | Adimensional |
+| Questão | Métrica                               | Definição                                                                           | Unidade         | Fórmula/Coleta                                            |
+| -------- | -------------------------------------- | ------------------------------------------------------------------------------------- | --------------- | ---------------------------------------------------------- |
+| Q1       | **Taxa de detecção (Recall)**  | Proporção de defeitos reais detectados em relação ao total de defeitos existentes | %               | (Defeitos detectados / Total de defeitos inseridos) × 100 |
+| Q1       | **Número absoluto de defeitos** | Quantidade total de defeitos identificados corretamente                               | Contagem        | Soma de defeitos válidos encontrados                      |
+| Q2       | **Tempo de revisão**            | Tempo total gasto para completar a revisão                                           | Minutos         | Cronometragem (fim - início)                              |
+| Q2       | **Velocidade de revisão**       | Linhas de código revisadas por unidade de tempo                                      | LOC/min         | LOC total / Tempo de revisão                              |
+| Q3       | **Distribuição por categoria** | Proporção de defeitos detectados em cada categoria                                  | % por categoria | Contagem por categoria / Total detectado                   |
+| Q4       | **Taxa de falso positivo**       | Proporção de problemas reportados que não são defeitos reais                      | %               | (Falsos positivos / Total reportado) × 100                |
+| Q4       | **Precisão**                    | Proporção de defeitos reportados que são realmente defeitos                        | %               | (Verdadeiros positivos / Total reportado) × 100           |
+| Q5       | **F1-Score**                     | Média harmônica entre precisão e recall                                            | 0-1             | 2 × (Precisão × Recall) / (Precisão + Recall)          |
 
 **Categorias de defeitos a serem utilizadas:**
 
@@ -278,38 +257,38 @@ Utilizando o template GQM (Goal-Question-Metric):
 
 **Incluído no escopo:**
 
-| Item | Descrição |
-|------|-----------||
-| Linguagem | Python 3.x |
-| Tipo de código | Scripts e funções de complexidade baixa a média (50-200 LOC) |
-| Tipos de defeitos | Funcionais, segurança, performance, manutenibilidade, estilo |
-| Ferramenta de IA | CodeRabbit |
-| Participantes | Estudantes de graduação com conhecimento básico-intermediário em Python |
-| Processo | Revisão de Pull Requests em repositório controlado |
+| Item              | Descrição                                                                 |
+| ----------------- | --------------------------------------------------------------------------- |
+| Linguagem         | Python 3.x                                                                  |
+| Tipo de código   | Scripts e funções de complexidade baixa a média (50-200 LOC)             |
+| Tipos de defeitos | Funcionais, segurança, performance, manutenibilidade, estilo               |
+| Ferramenta de IA  | CodeRabbit                                                                  |
+| Participantes     | Estudantes de graduação com conhecimento básico-intermediário em Python |
+| Processo          | Revisão de Pull Requests em repositório controlado                        |
 
 **Excluído do escopo:**
 
-| Item | Justificativa |
-|------|--------------|
-| Outras linguagens | Foco em Python para controlar variabilidade |
-| Código legado complexo | Difícil controlar variáveis e inserir defeitos conhecidos |
-| Revisão de arquitetura | Fora do escopo de code review de PR |
-| Aspectos de documentação | Foco em código executável |
-| Integração com CI/CD | Simplificação do experimento |
-| Desenvolvedores profissionais | Dificuldade de acesso e disponibilidade |
+| Item                          | Justificativa                                               |
+| ----------------------------- | ----------------------------------------------------------- |
+| Outras linguagens             | Foco em Python para controlar variabilidade                 |
+| Código legado complexo       | Difícil controlar variáveis e inserir defeitos conhecidos |
+| Revisão de arquitetura       | Fora do escopo de code review de PR                         |
+| Aspectos de documentação    | Foco em código executável                                 |
+| Integração com CI/CD        | Simplificação do experimento                              |
+| Desenvolvedores profissionais | Dificuldade de acesso e disponibilidade                     |
 
 ---
 
 ### 4.2 Contexto do estudo (tipo de organização, projeto, experiência)
 
-| Dimensão | Caracterização |
-|----------|----------------|
-| **Tipo de organização** | Acadêmica (Universidade) |
-| **Tipo de projeto** | Exercícios controlados (não produção real) |
-| **Criticidade** | Baixa (ambiente experimental) |
-| **Perfil dos participantes** | Estudantes de graduação, 2º ao 4º ano |
-| **Experiência esperada** | 1-3 anos de programação, familiaridade com Python |
-| **Experiência com CR** | Variável (será coletada como característica) |
+| Dimensão                          | Caracterização                                    |
+| ---------------------------------- | --------------------------------------------------- |
+| **Tipo de organização**    | Acadêmica (Universidade)                           |
+| **Tipo de projeto**          | Exercícios controlados (não produção real)      |
+| **Criticidade**              | Baixa (ambiente experimental)                       |
+| **Perfil dos participantes** | Estudantes de graduação, 2º ao 4º ano           |
+| **Experiência esperada**    | 1-3 anos de programação, familiaridade com Python |
+| **Experiência com CR**      | Variável (será coletada como característica)     |
 
 ---
 
@@ -326,13 +305,13 @@ Utilizando o template GQM (Goal-Question-Metric):
 
 ### 4.4 Restrições
 
-| Restrição | Impacto | Mitigação |
-|-----------|---------|-----------||
-| **Tempo limitado** | Número reduzido de tarefas por participante | Priorizar qualidade sobre quantidade |
-| **Orçamento zero/baixo** | Uso de ferramentas gratuitas ou trials | Selecionar ferramentas com tier gratuito |
-| **Acesso a participantes** | Amostra limitada a estudantes disponíveis | Maximizar participação com incentivos acadêmicos |
-| **Ambiente controlado** | Pode não refletir condições reais de trabalho | Reconhecer como limitação na análise |
-| **Experiência dos participantes** | Resultados podem não generalizar para profissionais | Documentar perfil e discutir nas limitações |
+| Restrição                              | Impacto                                              | Mitigação                                         |
+| ---------------------------------------- | ---------------------------------------------------- | --------------------------------------------------- |
+| **Tempo limitado**                 | Número reduzido de tarefas por participante         | Priorizar qualidade sobre quantidade                |
+| **Orçamento zero/baixo**          | Uso de ferramentas gratuitas ou trials               | Selecionar ferramentas com tier gratuito            |
+| **Acesso a participantes**         | Amostra limitada a estudantes disponíveis           | Maximizar participação com incentivos acadêmicos |
+| **Ambiente controlado**            | Pode não refletir condições reais de trabalho     | Reconhecer como limitação na análise             |
+| **Experiência dos participantes** | Resultados podem não generalizar para profissionais | Documentar perfil e discutir nas limitações       |
 
 ---
 
@@ -399,13 +378,13 @@ Utilizando o template GQM (Goal-Question-Metric):
 
 ### 6.1 Riscos de alto nível (negócio, técnicos, etc.)
 
-| Risco | Categoria | Probabilidade | Impacto |
+| Risco                                                | Categoria     | Probabilidade | Impacto |
 | ---------------------------------------------------- | ------------- | ------------- | ------- |
-| CodeRabbit indisponível ou com mudanças | Técnico | Baixa | Alto |
-| Baixa adesão de participantes | Operacional | Média | Alto |
-| Defeitos inseridos muito fáceis ou difíceis | Metodológico | Média | Médio |
-| Tempo insuficiente para análise | Cronograma | Média | Médio |
-| Dados insuficientes para significância estatística | Metodológico | Média | Alto |
+| CodeRabbit indisponível ou com mudanças            | Técnico      | Baixa         | Alto    |
+| Baixa adesão de participantes                       | Operacional   | Média        | Alto    |
+| Defeitos inseridos muito fáceis ou difíceis        | Metodológico | Média        | Médio  |
+| Tempo insuficiente para análise                     | Cronograma    | Média        | Médio  |
+| Dados insuficientes para significância estatística | Metodológico | Média        | Alto    |
 
 ---
 
@@ -432,3 +411,148 @@ Utilizando o template GQM (Goal-Question-Metric):
 - Impossibilidade de recrutar mínimo de participantes
 - Orientador ou comitê de ética reprova o desenho
 - Prazo do TCC inviabiliza execução adequada
+
+## 7. Modelo conceitual e hipóteses
+
+### 7.1 Modelo conceitual do experimento
+
+```
++-------------------+       +----------------------+       +------------------+
+|                   |       |                      |       |                  |
+|  Código Python    +------>+  Método de Revisão   +------>+  Resultados      |
+|  (com defeitos)   |       |  (VI: IA/Manual/     |       |  (VDs)           |
+|                   |       |   Híbrido)           |       |                  |
++-------------------+       +----------------------+       +------------------+
+                                     |                              |
+                                     |                              v
+                            +--------+--------+            - Defeitos detectados
+                            |                 |            - Tempo de revisão
+                            v                 v            - Falsos positivos
+                    +-------+----+    +-------+----+       - Categorias
+                    | CodeRabbit |    |  Humano    |
+                    | (IA)       |    |  (Manual)  |
+                    +------------+    +------------+
+```
+
+**Teoria subjacente:**
+
+- A IA (CodeRabbit) deve ser mais rápida devido à automação
+- Humanos devem ser melhores em detectar defeitos de lógica complexa
+- IA deve ser mais consistente em defeitos de estilo e padrões
+- Combinação híbrida deve maximizar cobertura
+
+---
+
+### 7.2 Hipóteses formais (H0, H1)
+
+**Hipótese 1 - Detecção de defeitos:**
+
+- **H0:** Não há diferença significativa na taxa de detecção de defeitos entre CodeRabbit e revisão manual (μ_IA = μ_Manual)
+- **H1:** Há diferença significativa na taxa de detecção de defeitos entre CodeRabbit e revisão manual (μ_IA ≠ μ_Manual)
+
+**Hipótese 2 - Tempo de revisão:**
+
+- **H0:** Não há diferença significativa no tempo de revisão entre CodeRabbit e revisão manual
+- **H1:** CodeRabbit requer significativamente menos tempo que revisão manual (μ_tempo_IA < μ_tempo_Manual)
+
+**Hipótese 3 - Falsos positivos:**
+
+- **H0:** Não há diferença na taxa de falsos positivos entre as abordagens
+- **H1:** Há diferença significativa na taxa de falsos positivos entre as abordagens
+
+**Hipótese 4 - Abordagem híbrida:**
+
+- **H0:** A abordagem híbrida não detecta mais defeitos que as abordagens individuais
+- **H1:** A abordagem híbrida detecta mais defeitos que as abordagens individuais
+
+---
+
+### 7.3 Nível de significância e considerações de poder
+
+- **Nível de significância (α):** 0,05
+- **Poder estatístico desejado (1-β):** 0,80
+- **Tamanho de efeito esperado:** Médio (d = 0,5 de Cohen)
+
+**Cálculo de tamanho amostral:**
+Para detectar efeito médio com α=0,05 e poder=0,80 em teste t para duas amostras independentes:
+
+- n ≈ 64 por grupo (ideal)
+- n mínimo viável ≈ 20 por grupo (com reconhecimento de limitação de poder)
+
+---
+
+## 8. Variáveis, fatores, tratamentos e objetos de estudo
+
+### 8.1 Objetos de estudo
+
+- **Artefatos de código:** Scripts Python com defeitos inseridos (seeded defects)
+- **Características dos artefatos:**
+  - Tamanho: 50-200 LOC
+  - Complexidade: Baixa a média
+  - Domínio: Funções utilitárias, processamento de dados, lógica de negócio simples
+  - Quantidade de defeitos por artefato: 5-10 defeitos de diferentes categorias
+
+---
+
+### 8.2 Sujeitos / participantes (visão geral)
+
+- **Perfil:** Estudantes de graduação em Computação/áreas correlatas
+- **Nível:** 2º ao 4º ano
+- **Conhecimento:** Programação em Python (básico a intermediário)
+- **Experiência com CR:** Variável (será coletada)
+
+---
+
+### 8.3 Variáveis independentes (fatores) e seus níveis
+
+| Fator                         | Descrição                                | Níveis                           |
+| ----------------------------- | ------------------------------------------ | --------------------------------- |
+| **Método de revisão** | Abordagem utilizada para revisar o código | 1. CodeRabbit (IA)                |
+|                               |                                            | 2. Manual (humano)                |
+|                               |                                            | 3. Híbrido (CodeRabbit + Manual) |
+
+---
+
+### 8.4 Tratamentos (condições experimentais)
+
+| Tratamento               | Descrição            | Procedimento                                                                   |
+| ------------------------ | ---------------------- | ------------------------------------------------------------------------------ |
+| **T1: CodeRabbit** | Revisão apenas com IA | Participante analisa output do CodeRabbit e lista defeitos encontrados         |
+| **T2: Manual**     | Revisão apenas humana | Participante revisa código sem auxílio de ferramentas de IA                  |
+| **T3: Híbrido**   | CodeRabbit + Manual    | Participante primeiro vê output do CodeRabbit, depois complementa manualmente |
+
+---
+
+### 8.5 Variáveis dependentes (respostas)
+
+| Variável             | Descrição                           | Tipo        | Escala/Unidade |
+| --------------------- | ------------------------------------- | ----------- | -------------- |
+| Defeitos detectados   | Número de defeitos reais encontrados | Discreta    | Contagem (0-n) |
+| Taxa de detecção    | Proporção de defeitos encontrados   | Contínua   | % (0-100)      |
+| Tempo de revisão     | Duração da revisão                 | Contínua   | Minutos        |
+| Falsos positivos      | Problemas reportados incorretamente   | Discreta    | Contagem (0-n) |
+| Precisão             | VP / (VP + FP)                        | Contínua   | % (0-100)      |
+| Categorias detectadas | Distribuição por tipo de defeito    | Categórica | 6 categorias   |
+
+---
+
+### 8.6 Variáveis de controle / bloqueio
+
+| Variável               | Descrição                   | Estratégia de controle                  |
+| ----------------------- | ----------------------------- | ---------------------------------------- |
+| Experiência em Python  | Anos/nível de experiência   | Bloqueio ou randomização estratificada |
+| Experiência em CR      | Familiaridade com code review | Coleta e análise como covariável       |
+| Complexidade do código | Dificuldade do artefato       | Padronização dos artefatos             |
+| Tamanho do código      | LOC dos artefatos             | Faixa controlada (50-200 LOC)            |
+| Ambiente                | IDE, configurações          | Padronização de ambiente               |
+
+---
+
+### 8.7 Possíveis variáveis de confusão conhecidas
+
+| Variável de confusão      | Potencial impacto                    | Estratégia de monitoramento             |
+| --------------------------- | ------------------------------------ | ---------------------------------------- |
+| Motivação do participante | Afeta esforço e atenção           | Questionário pós-tarefa                |
+| Fadiga                      | Degrada desempenho ao longo do tempo | Limitar duração; contrabalancear ordem |
+| Familiaridade com domínio  | Facilita identificação de defeitos | Usar domínios genéricos                |
+| Conhecimento prévio de IA  | Afeta confiança no CodeRabbit       | Coletar no questionário demográfico    |
