@@ -410,3 +410,148 @@ Utilizando o template GQM (Goal-Question-Metric):
 - Impossibilidade de recrutar mínimo de participantes
 - Orientador ou comitê de ética reprova o desenho
 - Prazo do TCC inviabiliza execução adequada
+
+## 7. Modelo conceitual e hipóteses
+
+### 7.1 Modelo conceitual do experimento
+
+```
++-------------------+       +----------------------+       +------------------+
+|                   |       |                      |       |                  |
+|  Código Python    +------>+  Método de Revisão   +------>+  Resultados      |
+|  (com defeitos)   |       |  (VI: IA/Manual/     |       |  (VDs)           |
+|                   |       |   Híbrido)           |       |                  |
++-------------------+       +----------------------+       +------------------+
+                                     |                              |
+                                     |                              v
+                            +--------+--------+            - Defeitos detectados
+                            |                 |            - Tempo de revisão
+                            v                 v            - Falsos positivos
+                    +-------+----+    +-------+----+       - Categorias
+                    | CodeRabbit |    |  Humano    |
+                    | (IA)       |    |  (Manual)  |
+                    +------------+    +------------+
+```
+
+**Teoria subjacente:**
+
+- A IA (CodeRabbit) deve ser mais rápida devido à automação
+- Humanos devem ser melhores em detectar defeitos de lógica complexa
+- IA deve ser mais consistente em defeitos de estilo e padrões
+- Combinação híbrida deve maximizar cobertura
+
+---
+
+### 7.2 Hipóteses formais (H0, H1)
+
+**Hipótese 1 - Detecção de defeitos:**
+
+- **H0:** Não há diferença significativa na taxa de detecção de defeitos entre CodeRabbit e revisão manual (μ_IA = μ_Manual)
+- **H1:** Há diferença significativa na taxa de detecção de defeitos entre CodeRabbit e revisão manual (μ_IA ≠ μ_Manual)
+
+**Hipótese 2 - Tempo de revisão:**
+
+- **H0:** Não há diferença significativa no tempo de revisão entre CodeRabbit e revisão manual
+- **H1:** CodeRabbit requer significativamente menos tempo que revisão manual (μ_tempo_IA < μ_tempo_Manual)
+
+**Hipótese 3 - Falsos positivos:**
+
+- **H0:** Não há diferença na taxa de falsos positivos entre as abordagens
+- **H1:** Há diferença significativa na taxa de falsos positivos entre as abordagens
+
+**Hipótese 4 - Abordagem híbrida:**
+
+- **H0:** A abordagem híbrida não detecta mais defeitos que as abordagens individuais
+- **H1:** A abordagem híbrida detecta mais defeitos que as abordagens individuais
+
+---
+
+### 7.3 Nível de significância e considerações de poder
+
+- **Nível de significância (α):** 0,05
+- **Poder estatístico desejado (1-β):** 0,80
+- **Tamanho de efeito esperado:** Médio (d = 0,5 de Cohen)
+
+**Cálculo de tamanho amostral:**
+Para detectar efeito médio com α=0,05 e poder=0,80 em teste t para duas amostras independentes:
+
+- n ≈ 64 por grupo (ideal)
+- n mínimo viável ≈ 20 por grupo (com reconhecimento de limitação de poder)
+
+---
+
+## 8. Variáveis, fatores, tratamentos e objetos de estudo
+
+### 8.1 Objetos de estudo
+
+- **Artefatos de código:** Scripts Python com defeitos inseridos (seeded defects)
+- **Características dos artefatos:**
+  - Tamanho: 50-200 LOC
+  - Complexidade: Baixa a média
+  - Domínio: Funções utilitárias, processamento de dados, lógica de negócio simples
+  - Quantidade de defeitos por artefato: 5-10 defeitos de diferentes categorias
+
+---
+
+### 8.2 Sujeitos / participantes (visão geral)
+
+- **Perfil:** Estudantes de graduação em Computação/áreas correlatas
+- **Nível:** 2º ao 4º ano
+- **Conhecimento:** Programação em Python (básico a intermediário)
+- **Experiência com CR:** Variável (será coletada)
+
+---
+
+### 8.3 Variáveis independentes (fatores) e seus níveis
+
+| Fator                         | Descrição                                | Níveis                           |
+| ----------------------------- | ------------------------------------------ | --------------------------------- |
+| **Método de revisão** | Abordagem utilizada para revisar o código | 1. CodeRabbit (IA)                |
+|                               |                                            | 2. Manual (humano)                |
+|                               |                                            | 3. Híbrido (CodeRabbit + Manual) |
+
+---
+
+### 8.4 Tratamentos (condições experimentais)
+
+| Tratamento               | Descrição            | Procedimento                                                                   |
+| ------------------------ | ---------------------- | ------------------------------------------------------------------------------ |
+| **T1: CodeRabbit** | Revisão apenas com IA | Participante analisa output do CodeRabbit e lista defeitos encontrados         |
+| **T2: Manual**     | Revisão apenas humana | Participante revisa código sem auxílio de ferramentas de IA                  |
+| **T3: Híbrido**   | CodeRabbit + Manual    | Participante primeiro vê output do CodeRabbit, depois complementa manualmente |
+
+---
+
+### 8.5 Variáveis dependentes (respostas)
+
+| Variável             | Descrição                           | Tipo        | Escala/Unidade |
+| --------------------- | ------------------------------------- | ----------- | -------------- |
+| Defeitos detectados   | Número de defeitos reais encontrados | Discreta    | Contagem (0-n) |
+| Taxa de detecção    | Proporção de defeitos encontrados   | Contínua   | % (0-100)      |
+| Tempo de revisão     | Duração da revisão                 | Contínua   | Minutos        |
+| Falsos positivos      | Problemas reportados incorretamente   | Discreta    | Contagem (0-n) |
+| Precisão             | VP / (VP + FP)                        | Contínua   | % (0-100)      |
+| Categorias detectadas | Distribuição por tipo de defeito    | Categórica | 6 categorias   |
+
+---
+
+### 8.6 Variáveis de controle / bloqueio
+
+| Variável               | Descrição                   | Estratégia de controle                  |
+| ----------------------- | ----------------------------- | ---------------------------------------- |
+| Experiência em Python  | Anos/nível de experiência   | Bloqueio ou randomização estratificada |
+| Experiência em CR      | Familiaridade com code review | Coleta e análise como covariável       |
+| Complexidade do código | Dificuldade do artefato       | Padronização dos artefatos             |
+| Tamanho do código      | LOC dos artefatos             | Faixa controlada (50-200 LOC)            |
+| Ambiente                | IDE, configurações          | Padronização de ambiente               |
+
+---
+
+### 8.7 Possíveis variáveis de confusão conhecidas
+
+| Variável de confusão      | Potencial impacto                    | Estratégia de monitoramento             |
+| --------------------------- | ------------------------------------ | ---------------------------------------- |
+| Motivação do participante | Afeta esforço e atenção           | Questionário pós-tarefa                |
+| Fadiga                      | Degrada desempenho ao longo do tempo | Limitar duração; contrabalancear ordem |
+| Familiaridade com domínio  | Facilita identificação de defeitos | Usar domínios genéricos                |
+| Conhecimento prévio de IA  | Afeta confiança no CodeRabbit       | Coletar no questionário demográfico    |
