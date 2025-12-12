@@ -501,9 +501,20 @@ Para detectar efeito médio com α=0,05 e poder=0,80 em teste t para duas amostr
 
 | Fator                         | Descrição                                | Níveis                           |
 | ----------------------------- | ------------------------------------------ | --------------------------------- |
-| **Método de revisão** | Abordagem utilizada para revisar o código | 1. CodeRabbit (IA)                |
+| **Método de revisão** (VI principal) | Abordagem utilizada para revisar o código | 1. CodeRabbit (IA)                |
 |                               |                                            | 2. Manual (humano)                |
 |                               |                                            | 3. Híbrido (CodeRabbit + Manual) |
+| **Complexidade do código** | Nível de dificuldade do artefato a ser revisado | 1. Baixa (50-100 LOC, lógica simples) |
+|                               |                                            | 2. Média (100-200 LOC, lógica moderada) |
+| **Tipo de defeito** | Categoria predominante dos defeitos inseridos | 1. Funcional |
+|                               |                                            | 2. Segurança |
+|                               |                                            | 3. Performance |
+|                               |                                            | 4. Manutenibilidade |
+|                               |                                            | 5. Estilo/Convenção |
+|                               |                                            | 6. Tratamento de erros |
+| **Ordem de execução** | Sequência das tarefas (para contrabalanceamento) | 1. Sequência A (T1→T2→T3) |
+|                               |                                            | 2. Sequência B (T2→T3→T1) |
+|                               |                                            | 3. Sequência C (T3→T1→T2) |
 
 ---
 
@@ -522,11 +533,6 @@ Para detectar efeito médio com α=0,05 e poder=0,80 em teste t para duas amostr
 | Variável             | Descrição                           | Tipo        | Escala/Unidade |
 | --------------------- | ------------------------------------- | ----------- | -------------- |
 | Defeitos detectados   | Número de defeitos reais encontrados | Discreta    | Contagem (0-n) |
-| Taxa de detecção    | Proporção de defeitos encontrados   | Contínua   | % (0-100)      |
-| Tempo de revisão     | Duração da revisão                 | Contínua   | Minutos        |
-| Falsos positivos      | Problemas reportados incorretamente   | Discreta    | Contagem (0-n) |
-| Precisão             | VP / (VP + FP)                        | Contínua   | % (0-100)      |
-| Categorias detectadas | Distribuição por tipo de defeito    | Categórica | 6 categorias   |
 
 ---
 
